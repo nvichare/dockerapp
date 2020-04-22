@@ -14,7 +14,7 @@ jobs:
             pip install docker-compose==1.15.0
       - run:
           name: Run tests
-          command: |
+          command: 
             docker-compose up -d
             docker-compose run dockerapp python test.py
       - deploy:
@@ -25,6 +25,6 @@ jobs:
             docker tag dockerapp_dockerapp $DOCKER_HUB_USER_ID/dockerapp:latest
             docker push DOCKER_HUB_USER_ID/dockerapp:$CIRCLE_SHA1
             docker push DOCKER_HUB_USER_ID/dockerapp:latest
-            
+
 
 
